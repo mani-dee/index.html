@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rebba Manideep | Fresher Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Custom CSS */
+        .gradient-text {
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3);
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .active::after {
+            width: 100%;
+        }
+        
+        .skill-bar {
+            height: 8px;
+            border-radius: 4px;
+            background: #1e293b;
+            overflow: hidden;
+        }
+        
+        .skill-progress {
+            height: 100%;
+            border-radius: 4px;
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+            transition: width 1s ease-in-out;
+        }
+        
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(transparent 60%, rgba(15, 23, 42, 0.9));
+            z-index: 1;
+        }
+        
+        .typewriter {
+            border-right: 2px solid #3b82f6;
+            white-space: nowrap;
+            overflow: hidden;
+            animation: blink-caret 0.75s step-end infinite;
+        }
+        
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: #3b82f6; }
+        }
+    </style>
+</head>
+<body class="bg-slate-900 text-slate-200 font-sans antialiased">
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-slate-900/80 backdrop-blur-md z-50 border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex-shrink-0 flex items-center">
+                    <span class="text-xl font-bold gradient-text">Rebba Manideep</span>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-center space-x-8">
+                        <a href="#home" class="nav-link px-3 py-2 text-sm font-medium active">Home</a>
+                        <a href="#about" class="nav-link px-3 py-2 text-sm font-medium">About</a>
+                        <a href="#skills" class="nav-link px-3 py-2 text-sm font-medium">Skills</a>
+                        <a href="#projects" class="nav-link px-3 py-2 text-sm font-medium">Projects</a>
+                        <a href="#contact" class="nav-link px-3 py-2 text-sm font-medium">Contact</a>
+                    </div>
+                </div>
+                <div class="md:hidden">
+                    <button id="menu-toggle" class="text-slate-300 hover:text-white focus:outline-none">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-slate-800/95 backdrop-blur-sm">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#home" class="block px-3 py-2 rounded-md text-base font-medium text-white bg-slate-700">Home</a>
+                <a href="#about" class="block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:text-white hover:bg-slate-700">About</a>
+                <a href="#skills" class="block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:text-white hover:bg-slate-700">Skills</a>
+                <a href="#projects" class="block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:text-white hover:bg-slate-700">Projects</a>
+                <a href="#contact" class="block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:text-white hover:bg-slate-700">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center pt-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0">
+                    <h1 class="text-4xl md:text-6xl font-bold mb-4">Hi, I'm <span class="gradient-text">Rebba Manideep</span></h1>
+                    <div class="h-12 mb-6">
+                        <h2 class="text-xl md:text-2xl font-medium typewriter" id="typewriter"></h2>
+                    </div>
+                    <p class="text-slate-400 mb-8 max-w-lg">
+                        Enthusiastic,hardworking,self-motivated and adaptable individual with strong communication skills and a growth-oriented mindset. Quick learner with a drive to lead and succeed in challenging environments
+                    </p>
+                    
+                </div>
+                <div class="md:w-1/2 flex justify-center">
+                    <div class="relative w-64 h-64 md:w-80 md:h-80">
+                        <div class="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full blur-xl opacity-30"></div>
+                        <div class="relative w-full h-full rounded-full overflow-hidden border-4 border-slate-700">
+                            <img src="https://media.licdn.com/dms/image/v2/D4D03AQGvk8MCaLjY4g/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1695104323276?e=1758153600&v=beta&t=Ksjsd_nU2RoLD7a47EZeeVtlUBs9u7BqHawKTIPYGDw"
+                                 alt="Profile" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-slate-800/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold mb-4">About <span class="gradient-text">Me</span></h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto"></div>
+            </div>
+            
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/3 mb-10 md:mb-0 flex justify-center">
+                    <div class="relative w-64 h-64">
+                        <div class="absolute -inset-2 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg blur opacity-75"></div>
+                        <div class="relative w-full h-full rounded-lg overflow-hidden">
+                            <img src="https://media.licdn.com/dms/image/v2/D4D03AQGvk8MCaLjY4g/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1695104323276?e=1758153600&v=beta&t=Ksjsd_nU2RoLD7a47EZeeVtlUBs9u7BqHawKTIPYGDw" 
+                                 alt="About" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="md:w-2/3 md:pl-12">
+                    <h3 class="text-2xl font-semibold mb-6">Who am I?</h3>
+                    <p class="text-slate-400 mb-6">
+                        I'm a recent Computer Science graduate with specilization AI&ML. I design and develope applications focused on seamless user experiences. From interactive frontends to data-driven backends, I am intrested in combining intelligent systems with elegant code.
+                    </p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                        <div>
+                            <h4 class="font-medium mb-2">Education</h4>
+                            <ul class="space-y-4">
+                                <li class="flex items-start">
+                                    <div class="flex-shrink-0 h-5 w-5 text-blue-500 mt-1 mr-3">
+                                        <i class="fas fa-graduation-cap"></i>
+                                    </div>
+                                    <div>
+                                        <p class="font-medium">B-Tech,Computer Science Engineering (AI&ML)</p>
+                                        <p class="text-sm text-slate-400">KG Reddy College of Engineering and Technology, 2025</p>
+                                    </div>
+                                </li>
+                                <li class="flex items-start">
+
+                                    
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        
+                    </div>
+                    
+                    <div class="flex flex-wrap gap-4">
+                       
+                        <a href="#contact" class="px-4 py-2 border border-slate-600 rounded-md hover:bg-slate-800 transition flex items-center">
+                            <i class="fas fa-paper-plane mr-2"></i> Contact Me
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold mb-4">My <span class="gradient-text">Skills</span></h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div>
+                    <h3 class="text-xl font-semibold mb-6">Technical Skills</h3>
+                    
+                    <div class="space-y-6">
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span>HTML/CSS</span>
+                                
+                            </div>
+                            
+                        </div>
+                        
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span>JavaScript</span>
+                                
+                            </div>
+                            
+                        </div>
+                        
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span>Python</span>
+                                
+                            </div>
+                            
+                        </div>
+                        
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span>SQL</span>
+                                
+                            </div>
+                            
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span>C++</span>
+                            
+                
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-semibold mb-6">Professional Skills</h3>
+                    
+                    <div class="space-y-6">
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span>Communication</span>
+                                
+                            </div>
+                           
+                        </div>
+                        
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span>Teamwork</span>
+                                
+                            </div>
+                           
+                        </div>
+                        
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span>Problem Solving</span>
+                                
+                            </div>
+                            
+                        </div>
+                        
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span>Creativity</span>
+                                
+                            </div>
+                           
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-16">
+                <h3 class="text-xl font-semibold mb-8 text-center">Tools & Technologies</h3>
+                
+                <div class="flex flex-wrap justify-center gap-6">
+                    <div class="w-20 h-20 bg-slate-800 rounded-lg flex flex-col items-center justify-center card-hover">
+                        <i class="fab fa-html5 text-3xl text-orange-500 mb-1"></i>
+                        <span class="text-xs">HTML</span>
+                    </div>
+                    <div class="w-20 h-20 bg-slate-800 rounded-lg flex flex-col items-center justify-center card-hover">
+                        <i class="fab fa-css3-alt text-3xl text-blue-500 mb-1"></i>
+                        <span class="text-xs">CSS</span>
+                    </div>
+                    <div class="w-20 h-20 bg-slate-800 rounded-lg flex flex-col items-center justify-center card-hover">
+                        <i class="fab fa-js text-3xl text-yellow-400 mb-1"></i>
+                        <span class="text-xs">JavaScript</span>
+                    </div>
+                    
+                    
+                    
+                    <div class="w-20 h-20 bg-slate-800 rounded-lg flex flex-col items-center justify-center card-hover">
+                        <i class="fab fa-figma text-3xl text-purple-500 mb-1"></i>
+                        <span class="text-xs">Figma</span>
+                    </div>
+                    <div class="w-20 h-20 bg-slate-800 rounded-lg flex flex-col items-center justify-center card-hover">
+                        <i class="fas fa-database text-3xl text-blue-600 mb-1"></i>
+                        <span class="text-xs">SQL</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 bg-slate-800/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold mb-4">My <span class="gradient-text">Projects</span></h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="project-card rounded-lg overflow-hidden relative card-hover">
+                    <img src="https://plus.unsplash.com/premium_photo-1681821694065-a75aec5da752?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
+                    alt="Project 1" class="w-full h-60 object-cover">
+                    <div class="absolute bottom-0 left-0 right-0 p-6 z-10">
+                        <h3 class="text-xl font-semibold mb-2">Drowsiness Detection System  </h3>
+                        <p class="text-slate-100 text-sm mb-4">Developed a real-time driver drowsiness detection tool using Python, OpenCV, and CNN trained on 1,000 eye images. Integrated voice alerts (pyttsx3) and emergency communication via Twilio API with GPS tracking. Modules included eye state classification, voice feedback, location detection, and automated alerts.  
+</p>
+                        <div class="flex space-x-3">
+                            <span class="text-xs bg-slate-700 px-2 py-1 rounded">CNN</span>
+                            <span class="text-xs bg-slate-700 px-2 py-1 rounded">Open cv/HCC</span>
+                            <span class="text-xs bg-slate-700 px-2 py-1 rounded">Pyttsx3</span>
+                            <span class="text-xs bg-slate-700 px-2 py-1 rounded">Twilio API</span>
+                            <span class="text-xs bg-slate-700 px-2 py-1 rounded">GPS</span>
+                        </div>
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-blue-500/20 to-purple-600/20 opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <a href="#" class="px-4 py-2 bg-white text-slate-900 rounded-md font-medium hover:bg-opacity-90 transition">
+                            View Project
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="project-card rounded-lg overflow-hidden relative card-hover">
+                    <img src="https://plus.unsplash.com/premium_photo-1682510963581-8963783dda00?q=80&w=1057&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    alt="Project 2" class="w-full h-60 object-cover">
+                    <div class="absolute bottom-0 left-0 right-0 p-6 z-10">
+                        <h3 class="text-xl font-semibold mb-2">RAG Model for Q&A Bot – Academic Project  </h3>
+                        <p class="text-slate-100 text-sm mb-4">Developed a chatbot using Retrieval-Augmented Generation (RAG) with Streamlit, PyMuPDF, and Pinecone, enabling users to upload PDFs and receive accurate, context-based answers through a conversational interface. Integrated document retrieval and dynamic prompt logic for real-time interaction.  </p>
+                        <div class="flex space-x-3">
+                            <span class="text-xs bg-slate-700 px-2 py-1 rounded">PyMuPDF</span>
+                            <span class="text-xs bg-slate-700 px-2 py-1 rounded">Pinecone</span>
+                            <span class="text-xs bg-slate-700 px-2 py-1 rounded">Streamlit/Python</span>
+                        </div>
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-blue-500/20 to-purple-600/20 opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <a href="#" class="px-4 py-2 bg-white text-slate-900 rounded-md font-medium hover:bg-opacity-90 transition">
+                            View Project
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Project 3 -->
+                <div class="project-card rounded-lg overflow-hidden relative card-hover">
+                    <img src="https://images.unsplash.com/photo-1555421689-3f034debb7a6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" 
+                   alt="Project 3" class="w-full h-60 object-cover">
+                    <div class="absolute bottom-0 left-0 right-0 p-6 z-10">
+                        <h3 class="text-xl font-semibold mb-2">Summarization of Long Documents Using AI – Academic Project  </h3>
+                        <p class="text-slate-100 text-sm mb-4">Created an AI-based PDF summarization and Q&A bot using Groq LLM, Pinecone, Streamlit, and PyMuPDF, with hierarchical chunking and RAG to generate concise summaries and deliver accurate, context-aware answers via a user-friendly interface.  </p>
+                        <div class="flex space-x-3">
+                            <span class="text-xs bg-slate-700 px-2 py-1 rounded">Groq LLM</span>
+                            <span class="text-xs bg-slate-700 px-2 py-1 rounded">RAG</span>
+                            <span class="text-xs bg-slate-700 px-2 py-1 rounded">Python</span>
+                        </div>
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-blue-500/20 to-purple-600/20 opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <a href="#" class="px-4 py-2 bg-white text-slate-900 rounded-md font-medium hover:bg-opacity-90 transition">
+                            View Project
+                        </a>
+                    </div>
+                </div>
+                
+                
+                
+                
+                
+                
+            </div>
+            
+           
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold mb-4">Get In <span class="gradient-text">Touch</span></h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto"></div>
+            </div>
+            
+            <div class="flex flex-col md:flex-row gap-12">
+                <div class="md:w-1/2">
+                    <h3 class="text-2xl font-semibold mb-6">Contact Information</h3>
+                    <p class="text-slate-400 mb-8">
+                        Feel free to reach out to me for any questions or opportunities. I'm always open to discussing new projects, creative ideas or opportunities to be part of your vision.
+                    </p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 h-6 w-6 text-blue-500 mt-1 mr-4">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium">Email</h4>
+                                <p class="text-slate-400">rebbamanideep@gmail.com</p>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 h-6 w-6 text-blue-500 mt-1 mr-4">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium">Location</h4>
+                                <p class="text-slate-400">Hyderabad, Telangana</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-10">
+                        <h4 class="font-medium mb-4">Follow Me</h4>
+                        <div class="flex space-x-4">
+                           
+                           <!-- LinkedIn Icon Button -->
+                           
+<a href="https://www.linkedin.com/in/rebba-manideep-058409292p-058409292" target="_blank" class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-blue-400 transition">
+  <i class="fab fa-linkedin-in"></i>
+</a>
+                            
+                            <a href="https://www.threads.net/@rebba_manideep_netha" target="_blank" class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-pink-500 transition">
+
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="md:w-1/2">
+  <form action="https://formspree.io/f/xgvzelqz" method="POST" class="space-y-6">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div>
+        <label for="name" class="block text-sm font-medium mb-2">Your Name</label>
+        <input type="text" id="name" name="name" class="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="your name">
+      </div>
+      <div>
+        <label for="email" class="block text-sm font-medium mb-2">Your Email</label>
+        <input type="email" id="email" name="email" class="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="name@example.com">
+      </div>
+    </div>
+
+    <div>
+      <label for="subject" class="block text-sm font-medium mb-2">Subject</label>
+      <input type="text" id="subject" name="subject" class="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Subject">
+    </div>
+
+    <div>
+      <label for="message" class="block text-sm font-medium mb-2">Your Message</label>
+      <textarea id="message" name="message" rows="5" class="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Your message here..."></textarea>
+    </div>
+
+    <button type="submit" class="px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-600 rounded-md font-medium hover:opacity-90 transition w-full">
+      Send Message
+    </button>
+  </form>
+</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-800/50 py-10 border-t border-slate-700">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <span class="text-xl font-bold gradient-text">Rebba Manideep</span>
+                    <p class="text-slate-400 mt-2">Creating digital experiences that matter.</p>
+                </div>
+                
+                <div class="flex space-x-6">
+                    <a href="#" class="text-slate-400 hover:text-white transition">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="#" class="text-slate-400 hover:text-blue-400 transition">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    
+                    <a href="#" class="text-slate-400 hover:text-blue-600 transition">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="mt-8 pt-8 border-t border-slate-700 text-center text-slate-500 text-sm">
+                <p>&copy; 2025 Manideep. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="fixed bottom-8 right-8 w-12 h-12 bg-slate-800 rounded-full flex items-center justify-center text-white shadow-lg hover:bg-slate-700 transition hidden">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        
+        
+        let i = 0;
+        const typeWriter = () => {
+            if (i < typewriterText.length) {
+                typewriterElement.innerHTML += typewriterText.charAt(i);
+                i++;
+                setTimeout(typeWriter, 100);
+            } else {
+                // Blinking cursor continues after text is complete
+            }
+        }
+        
+        // Start the typewriter effect
+        setTimeout(typeWriter, 1000);
+        
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Close mobile menu when clicking on a link
+        const mobileLinks = document.querySelectorAll('#mobile-menu a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Highlight active navigation link
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-link');
+        
+        window.addEventListener('scroll', () => {
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                
+                if (pageYOffset >= sectionTop - 100) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+        
+        // Back to top button
+        const backToTopButton = document.getElementById('back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.remove('hidden');
+            } else {
+                backToTopButton.classList.add('hidden');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Animate skill bars on scroll
+        const skillBars = document.querySelectorAll('.skill-progress');
+        
+        const animateSkillBars = () => {
+            skillBars.forEach(bar => {
+                const width = bar.style.width;
+                bar.style.width = '0';
+                
+                setTimeout(() => {
+                    bar.style.width = width;
+                }, 100);
+            });
+        };
+        
+        // Intersection Observer for skill bars animation
+        const skillsSection = document.getElementById('skills');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateSkillBars();
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        if (skillsSection) {
+            observer.observe(skillsSection);
+        }
+    </script>
+</body>
+</html>
